@@ -1,0 +1,18 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar.Bridge">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+    </style>
+
+    <style name="AppTheme.AppBar" parent="ThemeOverlay.MaterialComponents.Dark">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColor</item>
+    </style>
+
+    <style name="TitleTextAppearance" parent="TextAppearance.AppCompat.Title">
+    </style>
+
+</resources>

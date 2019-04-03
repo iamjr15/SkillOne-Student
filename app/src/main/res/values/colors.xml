@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#FAFAFA</color>
+    <color name="primaryLightColor">#FFFFFF</color>
+    <color name="primaryDarkColor">#eeeeee</color>
+
+    <color name="secondaryColor">#363636</color>
+    <color name="secondaryLightColor">#606060</color>
+    <color name="secondaryDarkColor">#101010</color>
+    <color name="secondaryAlphaColor">#22363636</color>
+
+    <color name="lightAlphaColor">#22363636</color>
+    <color name="divider">@color/secondaryLightColor</color>
+    <color name="disabled">#818181</color>
+    <color name="darkOverlay">#88000000</color>
+
+    <color name="grey_text">#676767</color>
+
+</resources>

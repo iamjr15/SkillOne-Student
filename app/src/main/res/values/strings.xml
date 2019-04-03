@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">StudentApp</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="password">Password</string>
+    <string name="next">Next</string>
+    <string name="enter_valid_first_name">Enter valid first name</string>
+    <string name="enter_valid_last_name">Enter valid last name</string>
+    <string name="enter_valid_number">Enter valid number</string>
+    <string name="number_verification">Number verification</string>
+    <string name="intent_is_null">Intent is null</string>
+    <string name="default_number">+923318415906</string>
+    <string name="msg_number_verification">You have to verify number given above to get registered. Click send code button to get the number verification code</string>
+    <string name="enter_valid_password">Enter valid password minimum length 4</string>
+    <string name="send_code">Send Code</string>
+    <string name="verify">Verify</string>
+    <string name="resend">Resend</string>
+    <string name="invalid_code">Invalid code</string>
+    <string name="number_verification_successful">Number verfication successful</string>
+    <string name="enter_code_below">Enter received code below</string>
+    <string name="code_sent">Code has been sent on your number</string>
+    <string name="welcome_note">Welcome to student app</string>
+</resources>
