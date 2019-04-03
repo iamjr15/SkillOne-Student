@@ -16,11 +16,20 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.start.NumberVerificationActivity"
-                  android:label="@string/number_verification"
-                  android:configChanges="screenSize|keyboard|orientation"
-                  android:screenOrientation="user"
-                  android:parentActivityName=".ui.start.SignUpActivity">
+        <activity
+                android:windowSoftInputMode="adjustNothing"
+                android:name=".ui.start.LoginActivity"
+                android:label="@string/login"
+                android:configChanges="orientation|keyboard|screenSize"
+                android:screenOrientation="user"
+                android:parentActivityName=".ui.start.StartActivity">
+        </activity>
+        <activity
+                android:name=".ui.start.NumberVerificationActivity"
+                android:configChanges="screenSize|keyboard|orientation"
+                android:label="@string/number_verification"
+                android:parentActivityName=".ui.start.SignUpActivity"
+                android:screenOrientation="user">
         </activity>
         <activity
                 android:name=".ui.start.SignUpActivity"

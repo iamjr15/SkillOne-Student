@@ -13,7 +13,9 @@
     <string name="number_verification">Number verification</string>
     <string name="intent_is_null">Intent is null</string>
     <string name="default_number">+923318415906</string>
-    <string name="msg_number_verification">You have to verify number given above to get registered. Click send code button to get the number verification code</string>
+    <string name="msg_number_verification">You have to verify number given above to get registered. Click send code
+        button to get the number verification code
+    </string>
     <string name="enter_valid_password">Enter valid password minimum length 4</string>
     <string name="send_code">Send Code</string>
     <string name="verify">Verify</string>

@@ -51,7 +51,7 @@ class StartActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             btnSignUp -> moveToNextActivity(SignUpActivity::class.java)
-            btnLogin -> moveToNextActivity(SignUpActivity::class.java)
+            btnLogin -> moveToNextActivity(LoginActivity::class.java)
             ivTheme -> toggleNightMode()
         }
     }

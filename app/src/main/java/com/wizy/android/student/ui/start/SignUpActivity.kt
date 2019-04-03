@@ -1,5 +1,6 @@
 package com.wizy.android.student.ui.start
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -8,7 +9,9 @@ import com.wizy.android.student.base.BaseToolbarActivity
 import com.wizy.android.student.helper.AppConstants
 import com.wizy.android.student.model.User
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
 import java.lang.StringBuilder
+
 
 class SignUpActivity : BaseToolbarActivity(), View.OnClickListener {
 
@@ -16,6 +19,17 @@ class SignUpActivity : BaseToolbarActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
         btnNext.setOnClickListener(this)
+        setKeyBoardListener()
+    }
+
+    @SuppressLint("RestrictedApi")
+    private fun setKeyBoardListener() {
+        KeyboardVisibilityEvent.setEventListener(this) {
+            when (it) {
+                true -> btnBack.visibility = View.GONE
+                false -> btnBack.visibility = View.VISIBLE
+            }
+        }
     }
 
 
