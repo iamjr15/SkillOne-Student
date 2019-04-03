@@ -16,12 +16,12 @@ import com.wizy.android.student.R
 import com.wizy.android.student.base.BaseToolbarActivity
 import com.wizy.android.student.helper.AppConstants
 import com.wizy.android.student.helper.CommonUtils
-import com.wizy.android.student.model.User
+import com.wizy.android.student.model.Student
 import kotlinx.android.synthetic.main.activity_number_verification.*
 import java.util.concurrent.TimeUnit
 
 class NumberVerificationActivity : BaseToolbarActivity(), View.OnClickListener {
-    private var user: User? = null
+    private var user: Student? = null
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     private var storedVerificationId: String? = null
     private var resendToken: PhoneAuthProvider.ForceResendingToken? = null
@@ -147,7 +147,7 @@ class NumberVerificationActivity : BaseToolbarActivity(), View.OnClickListener {
 
     private fun getIntentData() {
         if (intent.hasExtra(AppConstants.INTENT_USER)) {
-            user = intent.getSerializableExtra(AppConstants.INTENT_USER) as User
+            user = intent.getSerializableExtra(AppConstants.INTENT_USER) as Student
             setUpView()
         } else {
             showIntentIsNull()
