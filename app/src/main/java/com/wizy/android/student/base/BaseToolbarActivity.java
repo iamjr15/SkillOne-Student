@@ -13,11 +13,8 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-import com.wizy.android.student.App;
 import com.wizy.android.student.R;
 import com.wizy.android.student.helper.CommonUtils;
-import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
-import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
 
 public class BaseToolbarActivity extends BaseActivity {

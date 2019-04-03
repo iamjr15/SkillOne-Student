@@ -1,5 +1,6 @@
-package com.wizy.android.student.ui.start
+package com.wizy.android.student.ui.start.signup
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
@@ -114,6 +115,12 @@ class NumberVerificationActivity : BaseToolbarActivity(), View.OnClickListener {
 
     private fun onNumberVerification() {
         Snackbar.make(tvNumber, getString(R.string.number_verification_successful), Snackbar.LENGTH_SHORT).show()
+        Handler().postDelayed({
+            startActivity(
+                Intent(this, GenderSelectionActivity::class.java)
+                    .putExtra(AppConstants.INTENT_USER, user)
+            )
+        }, 600)
     }
 
     private fun resendVerificationCode() {

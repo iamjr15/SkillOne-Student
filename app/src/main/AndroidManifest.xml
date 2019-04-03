@@ -17,28 +17,37 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
-                android:windowSoftInputMode="adjustNothing"
-                android:name=".ui.start.LoginActivity"
-                android:label="@string/login"
-                android:configChanges="orientation|keyboard|screenSize"
+                android:name=".ui.start.signup.GenderSelectionActivity"
+                android:label="@string/select_gender"
+                android:configChanges="screenSize|keyboardHidden|orientation"
                 android:screenOrientation="user"
-                android:parentActivityName=".ui.start.StartActivity">
+                android:windowSoftInputMode="adjustNothing"
+                android:parentActivityName=".ui.start.signup.NumberVerificationActivity"
+        >
         </activity>
         <activity
-                android:windowSoftInputMode="adjustNothing"
-                android:name=".ui.start.NumberVerificationActivity"
+                android:name=".ui.start.LoginActivity"
+                android:configChanges="orientation|keyboard|screenSize"
+                android:label="@string/login"
+                android:parentActivityName=".ui.start.StartActivity"
+                android:screenOrientation="user"
+                android:windowSoftInputMode="adjustNothing">
+        </activity>
+        <activity
+                android:name=".ui.start.signup.NumberVerificationActivity"
                 android:configChanges="screenSize|keyboard|orientation"
                 android:label="@string/number_verification"
-                android:parentActivityName=".ui.start.SignUpActivity"
-                android:screenOrientation="user">
+                android:parentActivityName=".ui.start.signup.SignUpActivity"
+                android:screenOrientation="user"
+                android:windowSoftInputMode="adjustNothing">
         </activity>
         <activity
-                android:windowSoftInputMode="adjustNothing"
-                android:name=".ui.start.SignUpActivity"
+                android:name=".ui.start.signup.SignUpActivity"
                 android:configChanges="keyboard|orientation|screenSize"
                 android:label="@string/sign_up"
                 android:parentActivityName=".ui.start.StartActivity"
-                android:screenOrientation="user"/>
+                android:screenOrientation="user"
+                android:windowSoftInputMode="adjustNothing"/>
         <activity
                 android:name=".ui.start.StartActivity"
                 android:screenOrientation="portrait">

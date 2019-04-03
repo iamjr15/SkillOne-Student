@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        tools:context=".ui.start.signup.GenderSelectionActivity">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+                android:layout_gravity="center_horizontal"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textAlignment="center"
+                    android:text="@string/select_gender"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+                app:cardElevation="5dp"
+                app:cardCornerRadius="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.chip.ChipGroup
+                        android:layout_margin="20dp"
+                        android:id="@+id/choice_chip_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                            android:textAlignment="center"
+                            android:id="@+id/choice_chip"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/boy"/>
+
+                    <com.google.android.material.chip.Chip
+                            android:id="@+id/choice_chip2"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:text="@string/girl"/>
+                </com.google.android.material.chip.ChipGroup>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+</ScrollView>
