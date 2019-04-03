@@ -25,6 +25,7 @@
                 android:parentActivityName=".ui.start.StartActivity">
         </activity>
         <activity
+                android:windowSoftInputMode="adjustNothing"
                 android:name=".ui.start.NumberVerificationActivity"
                 android:configChanges="screenSize|keyboard|orientation"
                 android:label="@string/number_verification"
@@ -32,6 +33,7 @@
                 android:screenOrientation="user">
         </activity>
         <activity
+                android:windowSoftInputMode="adjustNothing"
                 android:name=".ui.start.SignUpActivity"
                 android:configChanges="keyboard|orientation|screenSize"
                 android:label="@string/sign_up"

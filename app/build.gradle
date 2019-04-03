@@ -57,7 +57,6 @@ dependencies {
     implementation 'com.chaos.view:pinview:1.4.3'
     // Calligraphy
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
-    //KeyBoard Event Listener
-    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.2.1'
+   
 }
 apply plugin: 'com.google.gms.google-services'
