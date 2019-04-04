@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
 import com.wizy.android.student.R
 import com.wizy.android.student.base.BaseToolbarActivity
 import com.wizy.android.student.helper.AppConstants
@@ -60,6 +61,10 @@ class GenderSelectionActivity : BaseToolbarActivity(), View.OnClickListener {
     }
 
     private fun moveToNextActivity() {
+        if (student?.gender == null) {
+            Snackbar.make(btnNext, getString(R.string.select_gender), Snackbar.LENGTH_SHORT).show()
+            return
+        }
         startActivity(
             Intent(this, ClassSelectionActivity::class.java)
                 .putExtra(AppConstants.INTENT_USER, student)
