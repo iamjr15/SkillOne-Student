@@ -91,15 +91,15 @@ public class Student implements Serializable {
         BOY, GIRL
     }
 
-    enum Standard {
+    public enum Standard {
         FIVE, SIX, SEVEN, EIGHT, NINE, TEN, ELEVEN, TWELVE
     }
 
-    enum Subject {
+    public enum Subject {
         SCIENCE, ENGLISH, MATHS, SOCIAL_SCIENCE, LANGUAGES, COMPUTER_SCIENCE
     }
 
-    enum Hobby {
+    public enum Hobby {
         GUITAR, PAINTING, MARTIAL_ARTS, DRUM_AND_PERCUSSION, KEYBOARD, DANCE
     }
 }

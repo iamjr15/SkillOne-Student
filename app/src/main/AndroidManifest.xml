@@ -16,14 +16,21 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.start.signup.ClassSelectionActivity"
+                  android:label="@string/class_selection"
+                  android:screenOrientation="user"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:parentActivityName=".ui.start.signup.GenderSelectionActivity"
+                  android:windowSoftInputMode="adjustResize"
+        >
+        </activity>
         <activity
                 android:name=".ui.start.signup.GenderSelectionActivity"
-                android:label="@string/select_gender"
                 android:configChanges="screenSize|keyboardHidden|orientation"
-                android:screenOrientation="user"
-                android:windowSoftInputMode="adjustNothing"
+                android:label="@string/select_gender"
                 android:parentActivityName=".ui.start.signup.NumberVerificationActivity"
-        >
+                android:screenOrientation="user"
+                android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
                 android:name=".ui.start.LoginActivity"
@@ -31,7 +38,7 @@
                 android:label="@string/login"
                 android:parentActivityName=".ui.start.StartActivity"
                 android:screenOrientation="user"
-                android:windowSoftInputMode="adjustNothing">
+                android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
                 android:name=".ui.start.signup.NumberVerificationActivity"
@@ -39,7 +46,7 @@
                 android:label="@string/number_verification"
                 android:parentActivityName=".ui.start.signup.SignUpActivity"
                 android:screenOrientation="user"
-                android:windowSoftInputMode="adjustNothing">
+                android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
                 android:name=".ui.start.signup.SignUpActivity"
@@ -47,7 +54,7 @@
                 android:label="@string/sign_up"
                 android:parentActivityName=".ui.start.StartActivity"
                 android:screenOrientation="user"
-                android:windowSoftInputMode="adjustNothing"/>
+                android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".ui.start.StartActivity"
                 android:screenOrientation="portrait">
