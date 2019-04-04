@@ -1,6 +1,7 @@
 package com.wizy.android.student.ui.start.signup
 
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
 import com.wizy.android.student.R
 import com.wizy.android.student.base.BaseActivity
@@ -14,6 +15,7 @@ class GreetingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_greeting)
+        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         getIntentData()
     }
 

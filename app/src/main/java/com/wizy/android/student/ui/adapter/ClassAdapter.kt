@@ -68,7 +68,7 @@ class ClassAdapter(
                     if (position == it) {
                         myClassViewHolder.image.setColorFilter(Color.GREEN)
                     } else {
-                        myClassViewHolder.image.setColorFilter(Color.BLACK)
+                        myClassViewHolder.image.setColorFilter(Color.WHITE)
                     }
                 }
                 myClassViewHolder.background.setOnClickListener {

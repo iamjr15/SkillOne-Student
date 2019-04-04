@@ -10,6 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <androidx.cardview.widget.CardView
+                app:cardBackgroundColor="?attr/colorPrimary"
                 app:cardElevation="5dp"
                 app:cardCornerRadius="10dp"
                 android:layout_marginTop="120dp"
@@ -36,7 +37,7 @@
                 <View
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="3dp"
+                        android:layout_height="2dp"
                         android:background="@color/primaryDarkColor"/>
                 <LinearLayout
                         android:weightSum="2"
@@ -46,14 +47,14 @@
 
 
                     <androidx.cardview.widget.CardView
+                            android:layout_margin="10dp"
                             android:id="@+id/boy"
                             android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:clickable="true"
                             android:focusable="true"
-                            app:cardCornerRadius="4dp"
-                            android:foreground="?android:attr/selectableItemBackground">
+                            app:cardCornerRadius="4dp">
 
                         <ImageView
                                 android:src="@drawable/boy"
@@ -64,14 +65,15 @@
                                 android:layout_height="120dp"/>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
+                            app:cardBackgroundColor="?attr/colorPrimary"
+                            android:layout_margin="10dp"
                             android:id="@+id/girl"
                             android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:clickable="true"
                             android:focusable="true"
-                            app:cardCornerRadius="4dp"
-                            android:foreground="?android:attr/selectableItemBackground">
+                            app:cardCornerRadius="4dp">
 
                         <ImageView
                                 android:src="@drawable/girl"

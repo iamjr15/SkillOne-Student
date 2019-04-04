@@ -17,8 +17,7 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ui.start.signup.GreetingActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@android:style/Theme.Translucent.NoTitleBar">
+                  android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".ui.start.signup.ClassSelectionActivity"

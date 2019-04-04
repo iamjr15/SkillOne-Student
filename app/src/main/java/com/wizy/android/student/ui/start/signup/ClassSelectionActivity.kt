@@ -89,19 +89,15 @@ class ClassSelectionActivity : BaseToolbarActivity(), ClassAdapter.NextClickList
             val gridLayoutManager = GridLayoutManager(this, 2)
             gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
+
                     return when (position) {
                         classes.size -> {
-                            1
-                        }
-                        else -> {
                             2
                         }
+                        else -> {
+                            1
+                        }
                     }
-                    /*return if (position < classes.size) {
-                        2
-                    } else {
-                        1
-                    }*/
                 }
             }
             rvClasses.layoutManager = gridLayoutManager

@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.wizy.android.student.R
 import com.wizy.android.student.base.BaseToolbarActivity
 import com.wizy.android.student.helper.AppConstants
@@ -45,12 +46,12 @@ class GenderSelectionActivity : BaseToolbarActivity(), View.OnClickListener {
             boy -> {
                 student?.gender = Student.Gender.BOY
                 boy.setCardBackgroundColor(Color.LTGRAY)
-                girl.setCardBackgroundColor(Color.WHITE)
+                girl.setCardBackgroundColor(ContextCompat.getColor(this, R.color.primaryColor))
             }
             girl -> {
                 student?.gender = Student.Gender.GIRL
                 girl.setCardBackgroundColor(Color.LTGRAY)
-                boy.setCardBackgroundColor(Color.WHITE)
+                boy.setCardBackgroundColor(ContextCompat.getColor(this, R.color.primaryColor))
             }
             btnNext -> {
                 moveToNextActivity()
