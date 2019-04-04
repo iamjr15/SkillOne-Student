@@ -28,4 +28,6 @@
     <string name="select_gender">Select Gender</string>
     <string name="boy">Boy</string>
     <string name="girl">Girl</string>
+    <string name="enter_your_credentials_below">Enter your credentials below</string>
+    <string name="get_registered_below">Get registered below</string>
 </resources>

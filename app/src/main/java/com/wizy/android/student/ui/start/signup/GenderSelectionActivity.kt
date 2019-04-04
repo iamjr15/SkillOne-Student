@@ -9,21 +9,31 @@ import kotlinx.android.synthetic.main.activity_gender_selection.*
 
 class GenderSelectionActivity : BaseToolbarActivity(), View.OnClickListener {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gender_selection)
         boy.setOnClickListener(this)
         girl.setOnClickListener(this)
+        btnNext.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v) {
             boy -> {
-                boy.setCardBackgroundColor(Color.GRAY)
+                boy.setCardBackgroundColor(Color.LTGRAY)
+                girl.setCardBackgroundColor(Color.WHITE)
             }
             girl -> {
-                girl.setCardBackgroundColor(Color.GRAY)
+                girl.setCardBackgroundColor(Color.LTGRAY)
+                boy.setCardBackgroundColor(Color.WHITE)
+            }
+            btnNext->{
+                moveToNextActivity()
             }
         }
+    }
+    private fun moveToNextActivity(){
+
     }
 }

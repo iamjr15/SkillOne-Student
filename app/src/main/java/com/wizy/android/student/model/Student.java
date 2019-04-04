@@ -87,7 +87,7 @@ public class Student implements Serializable {
         this.favSubjects = favSubjects;
     }
 
-    enum Gender {
+    public enum Gender {
         BOY, GIRL
     }
 
