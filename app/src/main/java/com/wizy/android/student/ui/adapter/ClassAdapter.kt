@@ -18,13 +18,14 @@ import com.wizy.android.student.model.StudentClass
 class ClassAdapter(
     internal val context: Context,
     private val classes: MutableList<StudentClass>,
-    val listener: NextClickListener
+    private val listener: NextClickListener
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var selectedPosition: Int? = null
     private var selectedClass: Student.Standard? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        System.out.println(viewType)
         return when (viewType) {
             0 -> ClassViewHolder(
                 LayoutInflater.from(parent.context).inflate(
@@ -32,7 +33,7 @@ class ClassAdapter(
                     false
                 )
             )
-            else -> ClassViewHolder(
+            else -> ButtonViewHolder(
                 LayoutInflater.from(parent.context).inflate(
                     R.layout.item_next, parent,
                     false
@@ -46,16 +47,19 @@ class ClassAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when {
-            position < classes.size -> 0
-            position == classes.size -> 1
-            else -> -1
+        return when (position) {
+            classes.size -> {
+                1// for next button
+            }
+            else -> {
+                0//for class item
+            }
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when {
-            position < classes.size -> {
+            position < (classes.size) -> {
                 val myClass: StudentClass = classes[position]
                 val myClassViewHolder: ClassViewHolder = holder as ClassViewHolder
                 myClassViewHolder.background.setCardBackgroundColor(Color.parseColor(myClass.colorString))
@@ -74,7 +78,7 @@ class ClassAdapter(
                 }
 
             }
-            position == classes.size -> {
+            position == (classes.size) -> {
                 val btnHolder: ButtonViewHolder = holder as ButtonViewHolder
                 btnHolder.btnNext.setOnClickListener {
                     if (selectedClass != null) {

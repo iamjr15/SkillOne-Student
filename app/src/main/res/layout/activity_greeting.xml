@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient"
+        tools:context=".ui.start.signup.GreetingActivity"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+    <TextView
+            android:layout_marginTop="40dp"
+            style="@style/TextAppearance.MaterialComponents.Headline1"
+            android:textColor="@android:color/white"
+            android:text="@string/hey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <TextView
+            android:id="@+id/tvName"
+            style="@style/TextAppearance.MaterialComponents.Headline2"
+            android:textColor="@android:color/white"
+            android:text="@string/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <TextView
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:text="@string/lets_customise_your_learning_place"
+            android:textColor="@android:color/white"
+            style="@style/TextAppearance.MaterialComponents.Headline4"
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_margin="20dp"
+            android:backgroundTint="@android:color/white"
+            android:textColor="@android:color/black"
+            android:text="@string/next"
+            android:layout_gravity="center"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"/>
+
+</LinearLayout>

@@ -16,13 +16,17 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.start.signup.ClassSelectionActivity"
-                  android:label="@string/class_selection"
-                  android:screenOrientation="user"
-                  android:configChanges="orientation|screenSize|keyboardHidden"
-                  android:parentActivityName=".ui.start.signup.GenderSelectionActivity"
-                  android:windowSoftInputMode="adjustResize"
-        >
+        <activity android:name=".ui.start.signup.GreetingActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <activity
+                android:name=".ui.start.signup.ClassSelectionActivity"
+                android:configChanges="orientation|screenSize|keyboardHidden"
+                android:label="@string/class_selection"
+                android:parentActivityName=".ui.start.signup.GenderSelectionActivity"
+                android:screenOrientation="user"
+                android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
                 android:name=".ui.start.signup.GenderSelectionActivity"

@@ -1,9 +1,21 @@
 package com.wizy.android.student.model;
 
 
+import androidx.annotation.DrawableRes;
+
 public class StudentClass {
     private String name;
     private String colorString;
+    @DrawableRes
+    private int image;
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
+    }
 
     public String getName() {
         return name;

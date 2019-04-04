@@ -33,4 +33,7 @@
     <string name="class_selection">Select Class</string>
     <string name="class_name">Class Name.</string>
     <string name="select_class_first">Select class first</string>
+    <string name="hey">Hey,</string>
+    <string name="name">Name</string>
+    <string name="lets_customise_your_learning_place">Lets customise you learning plan.</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.wizy.android.student.ui.start.signup
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
@@ -34,35 +35,42 @@ class ClassSelectionActivity : BaseToolbarActivity(), ClassAdapter.NextClickList
     }
 
     private fun getClasses() {
-        val studentClass = StudentClass()
+        var studentClass = StudentClass()
         studentClass.name = Student.Standard.FIVE.name
         studentClass.colorString = "#171733"
         classes.add(studentClass)
 
+        studentClass = StudentClass()
         studentClass.name = Student.Standard.SIX.name
         studentClass.colorString = "#8A89FA"
         classes.add(studentClass)
 
+        studentClass = StudentClass()
         studentClass.name = Student.Standard.SEVEN.name
         studentClass.colorString = "#C06BA6"
         classes.add(studentClass)
 
+        studentClass = StudentClass()
         studentClass.name = Student.Standard.EIGHT.name
         studentClass.colorString = "#FA6B6C"
         classes.add(studentClass)
 
+        studentClass = StudentClass()
         studentClass.name = Student.Standard.NINE.name
         studentClass.colorString = "#007170"
         classes.add(studentClass)
 
+        studentClass = StudentClass()
         studentClass.name = Student.Standard.TEN.name
         studentClass.colorString = "#91A2B1"
         classes.add(studentClass)
 
+        studentClass = StudentClass()
         studentClass.name = Student.Standard.ELEVEN.name
         studentClass.colorString = "#7DD9FD"
         classes.add(studentClass)
 
+        studentClass = StudentClass()
         studentClass.name = Student.Standard.TWELVE.name
         studentClass.colorString = "#FF5464"
         classes.add(studentClass)
@@ -77,15 +85,23 @@ class ClassSelectionActivity : BaseToolbarActivity(), ClassAdapter.NextClickList
 
     private fun setUpRecyclerView() {
         if (classes.size > 0) {
-            adapter = ClassAdapter(this, classes,this)
+            adapter = ClassAdapter(this, classes, this)
             val gridLayoutManager = GridLayoutManager(this, 2)
             gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
-                    return if (position < classes.size) {
+                    return when (position) {
+                        classes.size -> {
+                            1
+                        }
+                        else -> {
+                            2
+                        }
+                    }
+                    /*return if (position < classes.size) {
                         2
                     } else {
                         1
-                    }
+                    }*/
                 }
             }
             rvClasses.layoutManager = gridLayoutManager
@@ -99,6 +115,9 @@ class ClassSelectionActivity : BaseToolbarActivity(), ClassAdapter.NextClickList
     }
 
     private fun moveToNextActivity() {
-
+        startActivity(
+            Intent(this, GreetingActivity::class.java)
+                .putExtra(AppConstants.INTENT_USER, student)
+        )
     }
 }

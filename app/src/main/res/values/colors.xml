@@ -15,5 +15,7 @@
     <color name="darkOverlay">#88000000</color>
 
     <color name="grey_text">#676767</color>
+    <color name="start">#0065D0</color>
+    <color name="end">#82E8F9</color>
 
 </resources>
