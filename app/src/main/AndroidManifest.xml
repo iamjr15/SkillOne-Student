@@ -16,8 +16,11 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.start.signup.GreetingActivity"
-                  android:screenOrientation="portrait">
+        <activity android:name=".ui.start.signup.SubjectsSelectionActivity">
+        </activity>
+        <activity
+                android:name=".ui.start.signup.GreetingActivity"
+                android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".ui.start.signup.ClassSelectionActivity"

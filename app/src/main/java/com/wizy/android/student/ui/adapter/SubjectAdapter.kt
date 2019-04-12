@@ -13,21 +13,21 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.wizy.android.student.R
 import com.wizy.android.student.model.Student
-import com.wizy.android.student.model.StudentClass
+import com.wizy.android.student.model.StudentSubject
 
-class ClassAdapter(
+class SubjectAdapter(
     internal val context: Context,
-    private val classes: MutableList<StudentClass>,
+    private val subjects: MutableList<StudentSubject>,
     private val listener: NextClickListener
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var selectedPosition: Int? = null
+    private var selectedSubjects: MutableList<Student.Subject> = arrayListOf()
     private var selectedClass: Student.Standard? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         System.out.println(viewType)
         return when (viewType) {
-            0 -> ClassViewHolder(
+            0 -> SubjectViewHolder(
                 LayoutInflater.from(parent.context).inflate(
                     R.layout.item_class, parent,
                     false
@@ -43,12 +43,12 @@ class ClassAdapter(
     }
 
     override fun getItemCount(): Int {
-        return classes.size + 1
+        return subjects.size + 1
     }
 
     override fun getItemViewType(position: Int): Int {
         return when (position) {
-            classes.size -> {
+            subjects.size -> {
                 1// for next button
             }
             else -> {
@@ -57,33 +57,31 @@ class ClassAdapter(
         }
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(recyclerViewHolder: RecyclerView.ViewHolder, position: Int) {
         when {
-            position < (classes.size) -> {
-                val myClass: StudentClass = classes[position]
-                val myClassViewHolder: ClassViewHolder = holder as ClassViewHolder
-                myClassViewHolder.background.setCardBackgroundColor(Color.parseColor(myClass.colorString))
-                myClassViewHolder.name.text = myClass.name
-                myClassViewHolder.image.setImageResource(myClass.image)
-                selectedPosition?.let {
-                    if (position == it) {
-                        myClassViewHolder.image.setColorFilter(Color.GREEN)
+            position < (subjects.size) -> {
+                val holder: SubjectViewHolder = recyclerViewHolder as SubjectViewHolder
+                val subject: StudentSubject = subjects[position]
+                holder.background.setCardBackgroundColor(Color.parseColor(subject.colorString))
+                holder.name.text = subject.name
+                holder.image.setImageResource(subject.image)
+                holder.background.setOnClickListener {
+                    val sub: Student.Subject = getSubject(subject.name)
+                    if (selectedSubjects.contains(sub)) {
+                        selectedSubjects.remove(sub)
+                        holder.image.setColorFilter(Color.WHITE)
                     } else {
-                        myClassViewHolder.image.setColorFilter(Color.WHITE)
+                        selectedSubjects.add(sub)
+                        holder.image.setColorFilter(Color.GREEN)
                     }
-                }
-                myClassViewHolder.background.setOnClickListener {
-                    selectedPosition = position
-                    selectedClass = getStandard(myClass.name)
-                    notifyDataSetChanged()
                 }
 
             }
-            position == (classes.size) -> {
-                val btnHolder: ButtonViewHolder = holder as ButtonViewHolder
+            position == (subjects.size) -> {
+                val btnHolder: ButtonViewHolder = recyclerViewHolder as ButtonViewHolder
                 btnHolder.btnNext.setOnClickListener {
                     if (selectedClass != null) {
-                        listener.onClick(selectedClass!!)
+                        listener.onClick(selectedSubjects)
                     } else {
                         showSelectClassFirst(btnHolder.btnNext)
                     }
@@ -92,16 +90,15 @@ class ClassAdapter(
         }
     }
 
+    private fun getSubject(string: String): Student.Subject {
+        return Student.Subject.valueOf(string)
+
+    }
+
     private fun showSelectClassFirst(btnNext: MaterialButton) {
         Snackbar.make(btnNext, context.getString(R.string.select_class_first), Snackbar.LENGTH_SHORT).show()
     }
-
-    private fun getStandard(string: String): Student.Standard {
-        return Student.Standard.valueOf(string)
-    }
-
-
-    class ClassViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class SubjectViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val background: CardView = itemView.findViewById(R.id.background)
         val image: ImageView = itemView.findViewById(R.id.ivClass)
         val name: TextView = itemView.findViewById(R.id.tvClass)
@@ -114,6 +111,6 @@ class ClassAdapter(
 
     @FunctionalInterface
     interface NextClickListener {
-        fun onClick(standard: Student.Standard)
+        fun onClick(subjects: MutableList<Student.Subject>)
     }
 }

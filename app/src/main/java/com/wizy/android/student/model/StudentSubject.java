@@ -3,7 +3,7 @@ package com.wizy.android.student.model;
 
 import androidx.annotation.DrawableRes;
 
-public class StudentClass {
+public class StudentSubject {
     private String name;
     private String colorString;
     @DrawableRes
