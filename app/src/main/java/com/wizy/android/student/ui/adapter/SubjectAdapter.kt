@@ -81,7 +81,7 @@ class SubjectAdapter(
                 val btnHolder: ButtonViewHolder = recyclerViewHolder as ButtonViewHolder
                 btnHolder.btnNext.setOnClickListener {
                     if (selectedClass != null) {
-                        listener.onClick(selectedSubjects)
+                        listener.onClickNext(selectedSubjects)
                     } else {
                         showSelectClassFirst(btnHolder.btnNext)
                     }
@@ -111,6 +111,6 @@ class SubjectAdapter(
 
     @FunctionalInterface
     interface NextClickListener {
-        fun onClick(subjects: MutableList<Student.Subject>)
+        fun onClickNext(subjects: MutableList<Student.Subject>)
     }
 }

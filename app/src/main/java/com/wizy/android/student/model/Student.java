@@ -96,7 +96,7 @@ public class Student implements Serializable {
     }
 
     public enum Subject {
-        SCIENCE, ENGLISH, MATHS, SOCIAL_SCIENCE, LANGUAGES, COMPUTER_SCIENCE
+        SCIENCE, ENGLISH, MATHS, SOCIAL_STUDIES, LANGUAGES, COMPUTER_SCIENCE
     }
 
     public enum Hobby {

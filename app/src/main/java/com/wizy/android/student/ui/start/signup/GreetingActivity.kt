@@ -1,5 +1,6 @@
 package com.wizy.android.student.ui.start.signup
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
@@ -35,5 +36,13 @@ class GreetingActivity : BaseActivity() {
 
     private fun setUpViews() {
         tvName.text = student?.firstName
+        btnNext.setOnClickListener{
+            moveToNextActivity()
+        }
+    }
+    private fun moveToNextActivity(){
+        startActivity(Intent(this,SubjectsSelectionActivity::class.java)
+            .putExtra(AppConstants.INTENT_FROM,GreetingActivity::class.java.name)
+            .putExtra(AppConstants.INTENT_USER,student))
     }
 }
