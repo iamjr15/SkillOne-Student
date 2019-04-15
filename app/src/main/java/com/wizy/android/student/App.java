@@ -14,7 +14,8 @@ public class App extends Application {
                 .setDefaultFontPath("fonts/Montserrat-Regular.otf")
                 .setFontAttrId(R.attr.fontPath)
                 .build());
-
+      /*  //disk persistence stores the data offline
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);*/
     }
 
     public static App getContext() {

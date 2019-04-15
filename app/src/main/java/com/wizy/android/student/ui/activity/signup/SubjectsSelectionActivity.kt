@@ -1,7 +1,10 @@
 package com.wizy.android.student.ui.activity.signup
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
+import android.text.Spanned
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.wizy.android.student.R
@@ -43,9 +46,24 @@ class SubjectsSelectionActivity : BaseToolbarActivity(), SubjectAdapter.NextClic
         if (from == GreetingActivity::class.java.name) {
             tvTitle.text = getString(R.string.what_are_your_favourite_subjects)
         } else {
-            tvTitle.text = getString(R.string.what_are_your_least_favourite_subjects)
+            val preText: String = getString(R.string.what_are_your)
+            val middleText = "<font color='#EE0000'> least </font>"
+            val postText: String = getString(R.string.favourite_subjects)
+            tvTitle.text = fromHtml(preText + middleText + postText)
         }
         getSubjects()
+    }
+
+    @SuppressWarnings("deprecation")
+    private fun fromHtml(string: String): Spanned {
+        return when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> {
+                Html.fromHtml(string, Html.FROM_HTML_MODE_COMPACT)
+            }
+            else -> {
+                Html.fromHtml(string)
+            }
+        }
     }
 
     private fun getSubjects() {

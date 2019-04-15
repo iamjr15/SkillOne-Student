@@ -52,4 +52,6 @@
     <string name="academics">academics</string>
     <string name="hobby">hobby</string>
     <string name="learning_category">Learning category</string>
+    <string name="what_are_your">What are your</string>
+    <string name="favourite_subjects">favourite subjects?</string>
 </resources>

@@ -17,6 +17,7 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
     private var student: Student? = null
     private var adapter: HobbiesAdapter? = null
     private var hobbies: MutableList<StudentHobby> = arrayListOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hobby_selection)
@@ -103,6 +104,7 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
     }
 
     private fun registerUser() {
+
         moveToNextActivity()
     }
 

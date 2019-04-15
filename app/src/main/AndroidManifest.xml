@@ -15,7 +15,7 @@
             android:roundIcon="@mipmap/ic_app"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
-            tools:ignore="GoogleAppIndexingWarning">
+            tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity android:name=".ui.activity.LearningCategoryActivity"
                   android:label="@string/learning_category"
                   android:parentActivityName=".ui.activity.MainActivity"
