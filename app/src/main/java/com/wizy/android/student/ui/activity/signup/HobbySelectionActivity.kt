@@ -4,8 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 import com.wizy.android.student.R
 import com.wizy.android.student.base.BaseToolbarActivity
+import com.wizy.android.student.firebase.FirebaseHelper
 import com.wizy.android.student.helper.AppConstants
 import com.wizy.android.student.model.Student
 import com.wizy.android.student.model.StudentHobby
@@ -13,15 +18,17 @@ import com.wizy.android.student.ui.activity.MainActivity
 import com.wizy.android.student.ui.adapter.HobbiesAdapter
 import kotlinx.android.synthetic.main.activity_hobby_selection.*
 
-class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickListener {
+class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickListener, ValueEventListener {
     private var student: Student? = null
     private var adapter: HobbiesAdapter? = null
     private var hobbies: MutableList<StudentHobby> = arrayListOf()
+    private lateinit var reference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hobby_selection)
         getIntentData()
+
     }
 
 
@@ -29,6 +36,7 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
         if (intent.hasExtra(AppConstants.INTENT_USER)) {
             student = intent.getSerializableExtra(AppConstants.INTENT_USER) as Student
             getHobbies()
+            setFireBaseInstance()
         } else {
             showIntentIsNull()
         }
@@ -37,6 +45,11 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
     private fun showIntentIsNull() {
         Toast.makeText(this, getString(R.string.intent_is_null), Toast.LENGTH_SHORT).show()
         this.finish()
+    }
+
+    private fun setFireBaseInstance() {
+        reference = FirebaseHelper.getInstance().studentReference
+        reference.addValueEventListener(this)
     }
 
     private fun getHobbies() {
@@ -104,13 +117,25 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
     }
 
     private fun registerUser() {
+        student?.let {
+            reference.addValueEventListener(this)
+            reference.child(it.number).setValue(it)
+        }
 
-        moveToNextActivity()
     }
 
     private fun moveToNextActivity() {
         startActivity(Intent(this, MainActivity::class.java))
         finishAffinity()
+    }
+
+    override fun onDataChange(snapShot: DataSnapshot) {
+        System.out.println(snapShot.toString())
+        moveToNextActivity()
+    }
+
+    override fun onCancelled(error: DatabaseError) {
+        System.out.println(error.toString())
     }
 
 
