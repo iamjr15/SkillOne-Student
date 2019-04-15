@@ -1,5 +1,6 @@
-package com.wizy.android.student.ui.start.signup
+package com.wizy.android.student.ui.activity.signup
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
@@ -8,6 +9,7 @@ import com.wizy.android.student.base.BaseToolbarActivity
 import com.wizy.android.student.helper.AppConstants
 import com.wizy.android.student.model.Student
 import com.wizy.android.student.model.StudentHobby
+import com.wizy.android.student.ui.activity.MainActivity
 import com.wizy.android.student.ui.adapter.HobbiesAdapter
 import kotlinx.android.synthetic.main.activity_hobby_selection.*
 
@@ -97,11 +99,16 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
 
     override fun onClickNext(hobbies: MutableList<Student.Hobby>) {
         student?.hobbies = hobbies
+        registerUser()
+    }
+
+    private fun registerUser() {
         moveToNextActivity()
     }
 
     private fun moveToNextActivity() {
-        Toast.makeText(this, "Will move Next", Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this, MainActivity::class.java))
+        finishAffinity()
     }
 
 

@@ -16,66 +16,69 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.start.signup.HobbySelectionActivity"
-                  android:label="@string/select_hobby"
-                  android:configChanges="keyboardHidden|orientation|screenSize"
-                  android:parentActivityName=".ui.start.signup.SubjectsSelectionActivity"
-                  android:screenOrientation="user"
-                  android:windowSoftInputMode="adjustResize">
+        <activity android:name=".ui.activity.MainActivity">
         </activity>
         <activity
-                android:name=".ui.start.signup.SubjectsSelectionActivity"
+                android:name=".ui.activity.signup.HobbySelectionActivity"
                 android:configChanges="keyboardHidden|orientation|screenSize"
-                android:label="@string/select_subject"
-                android:parentActivityName=".ui.start.signup.GreetingActivity"
+                android:label="@string/select_hobby"
+                android:parentActivityName=".ui.activity.signup.SubjectsSelectionActivity"
                 android:screenOrientation="user"
                 android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
-                android:name=".ui.start.signup.GreetingActivity"
+                android:name=".ui.activity.signup.SubjectsSelectionActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:label="@string/select_subject"
+                android:parentActivityName=".ui.activity.signup.GreetingActivity"
+                android:screenOrientation="user"
+                android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+                android:name=".ui.activity.signup.GreetingActivity"
                 android:screenOrientation="portrait">
         </activity>
         <activity
-                android:name=".ui.start.signup.ClassSelectionActivity"
+                android:name=".ui.activity.signup.ClassSelectionActivity"
                 android:configChanges="orientation|screenSize|keyboardHidden"
                 android:label="@string/class_selection"
-                android:parentActivityName=".ui.start.signup.GenderSelectionActivity"
+                android:parentActivityName=".ui.activity.signup.GenderSelectionActivity"
                 android:screenOrientation="user"
                 android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
-                android:name=".ui.start.signup.GenderSelectionActivity"
+                android:name=".ui.activity.signup.GenderSelectionActivity"
                 android:configChanges="screenSize|keyboardHidden|orientation"
                 android:label="@string/select_gender"
-                android:parentActivityName=".ui.start.signup.NumberVerificationActivity"
+                android:parentActivityName=".ui.activity.signup.NumberVerificationActivity"
                 android:screenOrientation="user"
                 android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
-                android:name=".ui.start.LoginActivity"
+                android:name=".ui.activity.LoginActivity"
                 android:configChanges="orientation|keyboard|screenSize"
                 android:label="@string/login"
-                android:parentActivityName=".ui.start.StartActivity"
+                android:parentActivityName=".ui.activity.StartActivity"
                 android:screenOrientation="user"
                 android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
-                android:name=".ui.start.signup.NumberVerificationActivity"
+                android:name=".ui.activity.signup.NumberVerificationActivity"
                 android:configChanges="screenSize|keyboard|orientation"
                 android:label="@string/number_verification"
-                android:parentActivityName=".ui.start.signup.SignUpActivity"
+                android:parentActivityName=".ui.activity.signup.SignUpActivity"
                 android:screenOrientation="user"
                 android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
-                android:name=".ui.start.signup.SignUpActivity"
+                android:name=".ui.activity.signup.SignUpActivity"
                 android:configChanges="keyboard|orientation|screenSize"
                 android:label="@string/sign_up"
-                android:parentActivityName=".ui.start.StartActivity"
+                android:parentActivityName=".ui.activity.StartActivity"
                 android:screenOrientation="user"
                 android:windowSoftInputMode="adjustResize"/>
         <activity
-                android:name=".ui.start.StartActivity"
+                android:name=".ui.activity.StartActivity"
                 android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

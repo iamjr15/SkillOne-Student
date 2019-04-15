@@ -1,4 +1,4 @@
-package com.wizy.android.student.ui.start
+package com.wizy.android.student.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.view.animation.AnimationUtils
 import androidx.annotation.NonNull
 import com.wizy.android.student.R
 import com.wizy.android.student.base.BaseActivity
-import com.wizy.android.student.ui.start.signup.SignUpActivity
+import com.wizy.android.student.ui.activity.signup.SignUpActivity
 import kotlinx.android.synthetic.main.activity_start.*
 
 class StartActivity : BaseActivity(), View.OnClickListener {

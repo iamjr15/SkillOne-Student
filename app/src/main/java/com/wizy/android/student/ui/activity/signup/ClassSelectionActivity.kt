@@ -1,4 +1,4 @@
-package com.wizy.android.student.ui.start.signup
+package com.wizy.android.student.ui.activity.signup
 
 import android.content.Intent
 import android.os.Bundle

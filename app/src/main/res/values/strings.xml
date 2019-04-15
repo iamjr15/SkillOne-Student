@@ -45,4 +45,7 @@
     <string name="all_work_and_no_play">\"All work and no play makes jack a dull boy\"</string>
     <string name="select_some_exciting_hobbies">Select some exciting hobbies you want to pursue or already pursuing.
     </string>
+    <string name="lets_learn_Something_new">Lets learn something new</string>
+    <string name="search_skill_master">Search skill masters</string>
+    <string name="request_for_custom_learning">Request for custom learning</string>
 </resources>

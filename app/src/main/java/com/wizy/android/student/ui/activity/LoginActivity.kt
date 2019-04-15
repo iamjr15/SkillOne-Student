@@ -1,4 +1,4 @@
-package com.wizy.android.student.ui.start
+package com.wizy.android.student.ui.activity
 
 import android.os.Bundle
 import com.wizy.android.student.R
