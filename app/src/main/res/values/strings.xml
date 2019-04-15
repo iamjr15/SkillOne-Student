@@ -56,4 +56,9 @@
     <string name="favourite_subjects">favourite subjects?</string>
     <string name="you_have_been_registered_successfully">You have been registered successfully</string>
     <string name="number_already_registered">Number already registered</string>
+    <string name="select_atleast_one_hobby_first">Select atleast one hobby first</string>
+    <string name="select_atleast_one_subject">Select atleast one subject</string>
+    <string name="number_is_not_registered">Number is not registered</string>
+    <string name="login_successful">Login successful</string>
+    <string name="invalid_password">Invalid password</string>
 </resources>

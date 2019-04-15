@@ -80,10 +80,10 @@ class HobbiesAdapter(
             position == (hobbies.size) -> {
                 val btnHolder: ButtonViewHolder = recyclerViewHolder as ButtonViewHolder
                 btnHolder.btnNext.setOnClickListener {
-                    if (selectedHobbies.size>0) {
+                    if (selectedHobbies.size > 0) {
                         listener.onClickNext(selectedHobbies)
                     } else {
-                        showSelectClassFirst(btnHolder.btnNext)
+                        selectHobbyFirst(btnHolder.btnNext)
                     }
                 }
             }
@@ -95,9 +95,10 @@ class HobbiesAdapter(
 
     }
 
-    private fun showSelectClassFirst(btnNext: MaterialButton) {
-        Snackbar.make(btnNext, context.getString(R.string.select_class_first), Snackbar.LENGTH_SHORT).show()
+    private fun selectHobbyFirst(btnNext: MaterialButton) {
+        Snackbar.make(btnNext, context.getString(R.string.select_atleast_one_hobby_first), Snackbar.LENGTH_SHORT).show()
     }
+
     class SubjectViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val background: CardView = itemView.findViewById(R.id.background)
         val image: ImageView = itemView.findViewById(R.id.ivClass)

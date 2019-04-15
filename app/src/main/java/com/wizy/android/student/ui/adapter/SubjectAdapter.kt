@@ -82,7 +82,7 @@ class SubjectAdapter(
                     if (selectedSubjects.size>0) {
                         listener.onClickNext(selectedSubjects)
                     } else {
-                        showSelectClassFirst(btnHolder.btnNext)
+                        selectSubjectFirst(btnHolder.btnNext)
                     }
                 }
             }
@@ -94,8 +94,8 @@ class SubjectAdapter(
 
     }
 
-    private fun showSelectClassFirst(btnNext: MaterialButton) {
-        Snackbar.make(btnNext, context.getString(R.string.select_class_first), Snackbar.LENGTH_SHORT).show()
+    private fun selectSubjectFirst(btnNext: MaterialButton) {
+        Snackbar.make(btnNext, context.getString(R.string.select_atleast_one_subject), Snackbar.LENGTH_SHORT).show()
     }
     class SubjectViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val background: CardView = itemView.findViewById(R.id.background)
