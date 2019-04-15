@@ -125,27 +125,35 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
     }
 
     private fun checkUserExists() {
+        showProgress()
         student?.let {
             reference.document(it.number)
                 .get()
                 .addOnSuccessListener { document: DocumentSnapshot? ->
                     if (document != null) {
+                        System.out.println(document.data.toString())
+                        hideProgress()
                         userAlreadyExists()
                     } else {
                         registerUser()
                     }
                 }
                 .addOnFailureListener { ex: Exception ->
-                    showError(ex.message.toString())
+                    run {
+                        hideProgress()
+                        showError(ex.message.toString())
+
+                    }
                 }
         }
     }
 
     private fun userAlreadyExists() {
+        Snackbar.make(rvHobbies, getString(R.string.number_already_registered), Snackbar.LENGTH_SHORT)
+            .show()
     }
 
     private fun registerUser() {
-        showProgress()
         student?.let {
             reference
                 .document(it.number)
