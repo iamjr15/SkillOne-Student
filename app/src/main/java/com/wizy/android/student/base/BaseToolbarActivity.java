@@ -15,6 +15,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.wizy.android.student.R;
 import com.wizy.android.student.helper.CommonUtils;
+import com.wizy.android.student.keyboard.KeyboardVisibilityEvent;
+import com.wizy.android.student.keyboard.KeyboardVisibilityEventListener;
 
 
 public class BaseToolbarActivity extends BaseActivity {
@@ -38,12 +40,11 @@ public class BaseToolbarActivity extends BaseActivity {
         appBarLayout = findViewById(R.id.appBar);
         btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> onBackPressed());
-
-
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null && getSupportParentActivityIntent() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+        addKeyboardListener();
     }
 
 
@@ -52,6 +53,15 @@ public class BaseToolbarActivity extends BaseActivity {
         contentView.addView(getLayoutInflater().inflate(viewId, null));
     }
 
+    private void addKeyboardListener() {
+        KeyboardVisibilityEvent.registerEventListener(this, isOpen -> {
+            if (isOpen) {
+                btnBack.hide();
+            } else {
+                btnBack.show();
+            }
+        });
+    }
 
     protected void showProgress() {
 
