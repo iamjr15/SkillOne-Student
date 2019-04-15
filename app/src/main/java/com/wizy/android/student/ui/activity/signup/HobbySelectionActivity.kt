@@ -3,11 +3,15 @@ package com.wizy.android.student.ui.activity.signup
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
+import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.DocumentSnapshot
 import com.wizy.android.student.R
 import com.wizy.android.student.base.BaseToolbarActivity
 import com.wizy.android.student.firebase.FireBaseHelper
@@ -24,12 +28,14 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
     private var student: Student? = null
     private var adapter: HobbiesAdapter? = null
     private var hobbies: MutableList<StudentHobby> = arrayListOf()
+    private lateinit var reference: CollectionReference
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hobby_selection)
         getIntentData()
+
 
     }
 
@@ -42,6 +48,7 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
         } else {
             showIntentIsNull()
         }
+
     }
 
     private fun showIntentIsNull() {
@@ -50,7 +57,7 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
     }
 
     private fun setDatabaseReference() {
-
+        reference = FireBaseHelper.getInstance().db.collection(AppConstants.FB_COLLECTION)
     }
 
     private fun getHobbies() {
@@ -114,15 +121,33 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
 
     override fun onClickNext(hobbies: MutableList<Student.Hobby>) {
         student?.hobbies = hobbies
-        registerUser()
+        checkUserExists()
+    }
+
+    private fun checkUserExists() {
+        student?.let {
+            reference.document(it.number)
+                .get()
+                .addOnSuccessListener { document: DocumentSnapshot? ->
+                    if (document != null) {
+                        userAlreadyExists()
+                    } else {
+                        registerUser()
+                    }
+                }
+                .addOnFailureListener { ex: Exception ->
+                    showError(ex.message.toString())
+                }
+        }
+    }
+
+    private fun userAlreadyExists() {
     }
 
     private fun registerUser() {
         showProgress()
         student?.let {
-            FireBaseHelper.getInstance()
-                .db
-                .collection(AppConstants.FB_COLLECTION)
+            reference
                 .document(it.number)
                 .set(it)
                 .addOnSuccessListener(this)
@@ -131,12 +156,6 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
 
     }
 
-    private fun moveToNextActivity() {
-        Handler().postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
-            finishAffinity()
-        }, 800)
-    }
 
     override fun onSuccess(p0: Void?) {
         hideProgress()
@@ -147,10 +166,20 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
 
     override fun onFailure(ex: Exception) {
         hideProgress()
-        Snackbar.make(rvHobbies, ex.message.toString(), Snackbar.LENGTH_SHORT)
-            .show()
+        showError(ex.message.toString())
         System.out.println(ex.message.toString())
     }
 
+    private fun showError(error: String) {
+        Snackbar.make(rvHobbies, error, Snackbar.LENGTH_SHORT)
+            .show()
+    }
+
+    private fun moveToNextActivity() {
+        Handler().postDelayed({
+            startActivity(Intent(this, MainActivity::class.java))
+            finishAffinity()
+        }, 800)
+    }
 
 }
