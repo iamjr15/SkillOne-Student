@@ -16,7 +16,20 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.start.signup.SubjectsSelectionActivity">
+        <activity android:name=".ui.start.signup.HobbySelectionActivity"
+                  android:label="@string/select_hobby"
+                  android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:parentActivityName=".ui.start.signup.SubjectsSelectionActivity"
+                  android:screenOrientation="user"
+                  android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+                android:name=".ui.start.signup.SubjectsSelectionActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:label="@string/select_subject"
+                android:parentActivityName=".ui.start.signup.GreetingActivity"
+                android:screenOrientation="user"
+                android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
                 android:name=".ui.start.signup.GreetingActivity"

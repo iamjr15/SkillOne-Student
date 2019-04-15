@@ -97,10 +97,10 @@
                                 app:cursorWidth="2dp"
                                 app:hideLineWhenFilled="false"
                                 app:itemCount="6"
-                                app:itemHeight="48dp"
-                                app:itemRadius="15dp"
+                                app:itemHeight="40dp"
+                                app:itemRadius="20dp"
                                 app:itemSpacing="10dp"
-                                app:itemWidth="48dp"
+                                app:itemWidth="40dp"
                                 app:lineColor="@color/divider"
                                 app:lineWidth="2dp"
                                 app:viewType="rectangle"/>

@@ -1,18 +1,18 @@
 package com.wizy.android.student.ui.start.signup
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.wizy.android.student.R
+import com.wizy.android.student.base.BaseToolbarActivity
 import com.wizy.android.student.helper.AppConstants
 import com.wizy.android.student.model.Student
 import com.wizy.android.student.model.StudentSubject
 import com.wizy.android.student.ui.adapter.SubjectAdapter
 import kotlinx.android.synthetic.main.activity_subjects_selection.*
 
-class SubjectsSelectionActivity : AppCompatActivity(), SubjectAdapter.NextClickListener {
+class SubjectsSelectionActivity : BaseToolbarActivity(), SubjectAdapter.NextClickListener {
     private var student: Student? = null
     private var from: String? = null
     private var subjects: MutableList<StudentSubject> = arrayListOf()
@@ -125,7 +125,10 @@ class SubjectsSelectionActivity : AppCompatActivity(), SubjectAdapter.NextClickL
                     .putExtra(AppConstants.INTENT_FROM, SubjectsSelectionActivity::class.java.name)
             )
         } else {
-
+            startActivity(
+                Intent(this, HobbySelectionActivity::class.java)
+                    .putExtra(AppConstants.INTENT_USER, student)
+            )
         }
     }
 }

@@ -15,6 +15,7 @@ import com.wizy.android.student.R
 import com.wizy.android.student.model.Student
 import com.wizy.android.student.model.StudentClass
 
+
 class ClassAdapter(
     internal val context: Context,
     private val classes: MutableList<StudentClass>,

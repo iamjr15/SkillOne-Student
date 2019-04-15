@@ -21,7 +21,7 @@
     <string name="verify">Verify</string>
     <string name="resend">Resend</string>
     <string name="invalid_code">Invalid code</string>
-    <string name="number_verification_successful">Number verfication successful</string>
+    <string name="number_verification_successful">Number verification successful</string>
     <string name="enter_code_below">Enter received code below</string>
     <string name="code_sent">Code has been sent on your number</string>
     <string name="welcome_note">Welcome to student app</string>
@@ -35,8 +35,14 @@
     <string name="select_class_first">Select class first</string>
     <string name="hey">Hey,</string>
     <string name="name">Name</string>
-    <string name="lets_customise_your_learning_place">Lets customise you learning plan.</string>
+    <string name="lets_customise_your_learning_place">Lets customise your learning plan.</string>
     <string name="which_class">Which class are you in?</string>
     <string name="what_are_your_favourite_subjects">What are your favourite subjects?</string>
     <string name="what_are_your_least_favourite_subjects">What are your least favourite subjects?</string>
+    <string name="subjects_selection">Subjects selection</string>
+    <string name="select_subject">Select subject</string>
+    <string name="select_hobby">Select hobby</string>
+    <string name="all_work_and_no_play">\"All work and no play makes jack a dull boy\"</string>
+    <string name="select_some_exciting_hobbies">Select some exciting hobbies you want to pursue or already pursuing.
+    </string>
 </resources>
