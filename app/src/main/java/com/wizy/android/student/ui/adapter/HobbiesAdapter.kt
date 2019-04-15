@@ -14,14 +14,15 @@ import com.google.android.material.snackbar.Snackbar
 import com.wizy.android.student.R
 import com.wizy.android.student.model.Student
 import com.wizy.android.student.model.StudentHobby
+import javax.security.auth.Subject.getSubject
 
 class HobbiesAdapter(
     internal val context: Context,
-    private val subjects: MutableList<StudentHobby>,
+    private val hobbies: MutableList<StudentHobby>,
     private val listener: NextClickListener
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var selectedSubjects: MutableList<Student.Subject> = arrayListOf()
+    private var selectedHobbies: MutableList<Student.Hobby> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         System.out.println(viewType)
@@ -42,12 +43,12 @@ class HobbiesAdapter(
     }
 
     override fun getItemCount(): Int {
-        return subjects.size + 1
+        return hobbies.size + 1
     }
 
     override fun getItemViewType(position: Int): Int {
         return when (position) {
-            subjects.size -> {
+            hobbies.size -> {
                 1// for next button
             }
             else -> {
@@ -58,29 +59,29 @@ class HobbiesAdapter(
 
     override fun onBindViewHolder(recyclerViewHolder: RecyclerView.ViewHolder, position: Int) {
         when {
-            position < (subjects.size) -> {
+            position < (hobbies.size) -> {
                 val holder: SubjectViewHolder = recyclerViewHolder as SubjectViewHolder
-                val subject: StudentHobby = subjects[position]
+                val subject: StudentHobby = hobbies[position]
                 holder.background.setCardBackgroundColor(Color.parseColor(subject.colorString))
                 holder.name.text = subject.name
                 holder.image.setImageResource(subject.image)
                 holder.background.setOnClickListener {
-                    val sub: Student.Subject = getSubject(subject.name)
-                    if (selectedSubjects.contains(sub)) {
-                        selectedSubjects.remove(sub)
+                    val sub: Student.Hobby = getHobby(subject.name)
+                    if (selectedHobbies.contains(sub)) {
+                        selectedHobbies.remove(sub)
                         holder.image.setColorFilter(Color.WHITE)
                     } else {
-                        selectedSubjects.add(sub)
+                        selectedHobbies.add(sub)
                         holder.image.setColorFilter(Color.GREEN)
                     }
                 }
 
             }
-            position == (subjects.size) -> {
+            position == (hobbies.size) -> {
                 val btnHolder: ButtonViewHolder = recyclerViewHolder as ButtonViewHolder
                 btnHolder.btnNext.setOnClickListener {
-                    if (selectedSubjects.size>0) {
-                        listener.onClickNext(selectedSubjects)
+                    if (selectedHobbies.size>0) {
+                        listener.onClickNext(selectedHobbies)
                     } else {
                         showSelectClassFirst(btnHolder.btnNext)
                     }
@@ -89,8 +90,8 @@ class HobbiesAdapter(
         }
     }
 
-    private fun getSubject(string: String): Student.Subject {
-        return Student.Subject.valueOf(string)
+    private fun getHobby(string: String): Student.Hobby {
+        return Student.Hobby.valueOf(string)
 
     }
 
@@ -110,6 +111,6 @@ class HobbiesAdapter(
 
     @FunctionalInterface
     interface NextClickListener {
-        fun onClickNext(subjects: MutableList<Student.Subject>)
+        fun onClickNext(hobbies: MutableList<Student.Hobby>)
     }
 }

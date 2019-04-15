@@ -41,7 +41,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="20dp"
                 android:layout_gravity="center_horizontal"
-                android:id="@+id/rvClasses"
+                android:id="@+id/rvHobbies"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
     </androidx.cardview.widget.CardView>

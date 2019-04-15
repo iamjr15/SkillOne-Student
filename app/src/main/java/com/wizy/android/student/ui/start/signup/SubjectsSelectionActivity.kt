@@ -111,10 +111,10 @@ class SubjectsSelectionActivity : BaseToolbarActivity(), SubjectAdapter.NextClic
     override fun onClickNext(subjects: MutableList<Student.Subject>) {
         if (from == GreetingActivity::class.java.name) {
             student?.favSubjects = subjects
-            moveToNextActivity()
         } else {
             student?.leastFavSubjects = subjects
         }
+        moveToNextActivity()
     }
 
     private fun moveToNextActivity() {
