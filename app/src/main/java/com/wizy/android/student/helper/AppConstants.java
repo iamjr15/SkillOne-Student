@@ -6,4 +6,5 @@ public class AppConstants {
     public static final long DELAY_IN_SPLASH = 2500;
     public static final String INTENT_USER = "wizy.user";
     public static final String INTENT_FROM="wizy.from";
+    public static final String FB_COLLECTION = "students";
 }

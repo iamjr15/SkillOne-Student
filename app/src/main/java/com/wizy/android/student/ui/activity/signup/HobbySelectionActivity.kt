@@ -2,27 +2,29 @@ package com.wizy.android.student.ui.activity.signup
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.android.material.snackbar.Snackbar
 import com.wizy.android.student.R
 import com.wizy.android.student.base.BaseToolbarActivity
-import com.wizy.android.student.firebase.FirebaseHelper
+import com.wizy.android.student.firebase.FireBaseHelper
 import com.wizy.android.student.helper.AppConstants
 import com.wizy.android.student.model.Student
 import com.wizy.android.student.model.StudentHobby
 import com.wizy.android.student.ui.activity.MainActivity
 import com.wizy.android.student.ui.adapter.HobbiesAdapter
 import kotlinx.android.synthetic.main.activity_hobby_selection.*
+import java.lang.Exception
 
-class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickListener, ValueEventListener {
+class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickListener, OnSuccessListener<Void>,
+    OnFailureListener {
     private var student: Student? = null
     private var adapter: HobbiesAdapter? = null
     private var hobbies: MutableList<StudentHobby> = arrayListOf()
-    private lateinit var reference: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +38,7 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
         if (intent.hasExtra(AppConstants.INTENT_USER)) {
             student = intent.getSerializableExtra(AppConstants.INTENT_USER) as Student
             getHobbies()
-            setFireBaseInstance()
+            setDatabaseReference()
         } else {
             showIntentIsNull()
         }
@@ -47,9 +49,8 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
         this.finish()
     }
 
-    private fun setFireBaseInstance() {
-        reference = FirebaseHelper.getInstance().studentReference
-        reference.addValueEventListener(this)
+    private fun setDatabaseReference() {
+
     }
 
     private fun getHobbies() {
@@ -117,25 +118,38 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
     }
 
     private fun registerUser() {
+        showProgress()
         student?.let {
-            reference.addValueEventListener(this)
-            reference.child(it.number).setValue(it)
+            FireBaseHelper.getInstance()
+                .db
+                .collection(AppConstants.FB_COLLECTION)
+                .document(it.number)
+                .set(it)
+                .addOnSuccessListener(this)
+                .addOnFailureListener(this)
         }
 
     }
 
     private fun moveToNextActivity() {
-        startActivity(Intent(this, MainActivity::class.java))
-        finishAffinity()
+        Handler().postDelayed({
+            startActivity(Intent(this, MainActivity::class.java))
+            finishAffinity()
+        }, 800)
     }
 
-    override fun onDataChange(snapShot: DataSnapshot) {
-        System.out.println(snapShot.toString())
+    override fun onSuccess(p0: Void?) {
+        hideProgress()
+        Snackbar.make(rvHobbies, getString(R.string.you_have_been_registered_successfully), Snackbar.LENGTH_SHORT)
+            .show()
         moveToNextActivity()
     }
 
-    override fun onCancelled(error: DatabaseError) {
-        System.out.println(error.toString())
+    override fun onFailure(ex: Exception) {
+        hideProgress()
+        Snackbar.make(rvHobbies, ex.message.toString(), Snackbar.LENGTH_SHORT)
+            .show()
+        System.out.println(ex.message.toString())
     }
 
 

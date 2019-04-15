@@ -21,6 +21,10 @@
             "package_name": "com.wizy.android.student",
             "certificate_hash": "62083e192db79f83d1ee654f3efed49f3f37caef"
           }
+        },
+        {
+          "client_id": "1018367901955-95pr1d0laj7vcb0ca6ra47buv8ll2r6p.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
@@ -62,6 +66,10 @@
             "package_name": "com.wizy.testapp",
             "certificate_hash": "1c5415df916f4f578e5d707704c058073f068760"
           }
+        },
+        {
+          "client_id": "1018367901955-95pr1d0laj7vcb0ca6ra47buv8ll2r6p.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
