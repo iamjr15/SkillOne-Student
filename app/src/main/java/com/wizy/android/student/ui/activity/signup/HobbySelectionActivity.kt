@@ -130,7 +130,7 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
             reference.document(it.number)
                 .get()
                 .addOnSuccessListener { document: DocumentSnapshot? ->
-                    if (document?.data?.size!! > 0) {
+                    if (document?.data!=null) {
                         System.out.println(document.data.toString())
                         hideProgress()
                         userAlreadyExists()
