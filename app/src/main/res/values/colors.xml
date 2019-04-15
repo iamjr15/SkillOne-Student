@@ -17,5 +17,7 @@
     <color name="grey_text">#676767</color>
     <color name="start">#0065D0</color>
     <color name="end">#82E8F9</color>
-
+    <color name="pink">#FC6AF4</color>
+    <color name="dark_blue">#191333</color>
+    <color name="dark_pink">#F06E6C</color>
 </resources>

@@ -48,4 +48,8 @@
     <string name="lets_learn_Something_new">Lets learn something new</string>
     <string name="search_skill_master">Search skill masters</string>
     <string name="request_for_custom_learning">Request for custom learning</string>
+    <string name="select_your_category_of_learning">Select your category of learning</string>
+    <string name="academics">academics</string>
+    <string name="hobby">hobby</string>
+    <string name="learning_category">Learning category</string>
 </resources>

@@ -16,7 +16,19 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.activity.LearningCategoryActivity"
+                  android:label="@string/learning_category"
+                  android:parentActivityName=".ui.activity.MainActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="user"
+                  android:windowSoftInputMode="adjustResize"
+        >
+        </activity>
+        <activity android:name=".ui.activity.MainActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:screenOrientation="user"
+                  android:windowSoftInputMode="adjustResize"
+        >
         </activity>
         <activity
                 android:name=".ui.activity.signup.HobbySelectionActivity"

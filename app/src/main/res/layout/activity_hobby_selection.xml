@@ -21,7 +21,6 @@
             android:textAlignment="center"
             android:text="@string/select_some_exciting_hobbies"
             style="@style/TextAppearance.MaterialComponents.Headline6"
-            android:layout_marginTop="20dp"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

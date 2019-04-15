@@ -3,65 +3,65 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.activity.MainActivity">
+        android:background="@color/pink"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        tools:context=".ui.activity.LearningCategoryActivity">
 
     <LinearLayout
             android:padding="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
         <TextView
-                android:layout_marginTop="40dp"
-                style="@style/TextAppearance.MaterialComponents.Headline1"
-                android:text="@string/hey"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:id="@+id/tvName"
-                style="@style/TextAppearance.MaterialComponents.Headline2"
-                android:text="@string/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:padding="10dp"
-                android:textAlignment="viewStart"
-                android:text="@string/lets_learn_Something_new"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@android:color/white"
+                android:layout_margin="20dp"
+                android:padding="20dp"
+                android:textAlignment="center"
+                android:text="@string/select_your_category_of_learning"
+                style="@style/TextAppearance.MaterialComponents.Headline3"
                 android:layout_marginTop="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
 
         <androidx.cardview.widget.CardView
-                android:id="@+id/searchSkillMaster"
+                android:id="@+id/academics"
+                app:cardBackgroundColor="@color/dark_blue"
                 app:cardElevation="5dp"
                 android:layout_margin="20dp"
                 app:cardCornerRadius="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <TextView
+                    android:drawablePadding="10dp"
+                    android:drawableEnd="@drawable/ic_academics"
+                    android:textColor="@android:color/white"
                     android:padding="15dp"
-                    android:text="@string/search_skill_master"
+                    android:text="@string/academics"
                     style="@style/TextAppearance.MaterialComponents.Headline5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-                android:id="@+id/customLearning"
+                android:id="@+id/hobby"
+                app:cardBackgroundColor="@color/dark_pink"
                 app:cardElevation="5dp"
                 android:layout_margin="20dp"
                 app:cardCornerRadius="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <TextView
+                    android:drawablePadding="10dp"
+                    android:drawableEnd="@drawable/ic_hobby"
+                    android:textColor="@android:color/white"
                     android:padding="15dp"
-                    android:text="@string/request_for_custom_learning"
+                    android:text="@string/hobby"
                     style="@style/TextAppearance.MaterialComponents.Headline5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
         </androidx.cardview.widget.CardView>
+        
     </LinearLayout>
 </ScrollView>
