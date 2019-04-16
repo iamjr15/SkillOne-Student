@@ -2,7 +2,7 @@ package com.wizy.android.student.model;
 
 
 import androidx.annotation.DrawableRes;
-
+//Just Helper class to show items in hobbies recycler
 public class StudentHobby {
     private String name;
     private String colorString;

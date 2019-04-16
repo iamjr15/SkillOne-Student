@@ -1,15 +1,13 @@
 package com.wizy.android.student.model;
 
-
 import androidx.annotation.DrawableRes;
 
-
-//Just Helper Class to show items in classes recycler
-public class StudentClass {
+public class Choice {
     private String name;
     private String colorString;
     @DrawableRes
     private int image;
+
     public int getImage() {
         return image;
     }
