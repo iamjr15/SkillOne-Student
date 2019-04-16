@@ -61,4 +61,5 @@
     <string name="number_is_not_registered">Number is not registered</string>
     <string name="login_successful">Login successful</string>
     <string name="invalid_password">Invalid password</string>
+    <string name="enter_valid_code">Enter valid code</string>
 </resources>

@@ -6,13 +6,11 @@ import android.os.CountDownTimer
 import android.os.Handler
 import android.view.View
 import android.widget.Toast
+import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.auth.*
 import com.wizy.android.student.R
 import com.wizy.android.student.base.BaseToolbarActivity
 import com.wizy.android.student.helper.AppConstants
@@ -92,15 +90,23 @@ class NumberVerificationActivity : BaseToolbarActivity(), View.OnClickListener {
     }
 
     private fun verifyPhoneNumber() {
-        showProgress()
-        val otp: String = pinView.text.toString()
-        val credential: PhoneAuthCredential = PhoneAuthProvider.getCredential(storedVerificationId!!, otp)
-        signInWithPhoneAuthCredential(credential)
+        when {
+            pinView.text.isNullOrEmpty() -> {
+                Snackbar.make(btnVerify, getString(R.string.enter_valid_code), Snackbar.LENGTH_SHORT).show()
+            }
+            else -> {
+                showProgress()
+                val otp: String = pinView.text.toString()
+                val credential: PhoneAuthCredential = PhoneAuthProvider.getCredential(storedVerificationId!!, otp)
+                signInWithPhoneAuthCredential(credential)
+            }
+        }
+
     }
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         mAuth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
+            .addOnCompleteListener(this) { task: Task<AuthResult> ->
                 if (task.isSuccessful) {
                     hideProgress()
                     onNumberVerification()
