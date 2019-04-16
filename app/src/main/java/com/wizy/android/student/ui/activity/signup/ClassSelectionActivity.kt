@@ -9,15 +9,14 @@ import com.wizy.android.student.base.BaseToolbarActivity
 import com.wizy.android.student.helper.AppConstants
 import com.wizy.android.student.model.Choice
 import com.wizy.android.student.model.Student
-import com.wizy.android.student.ui.adapter.SingleSelectionAdapter
+import com.wizy.android.student.ui.adapter.ClassAdapter
 import kotlinx.android.synthetic.main.activity_class_selection.*
 
 
-class ClassSelectionActivity : BaseToolbarActivity(), SingleSelectionAdapter.NextClickListener {
+class ClassSelectionActivity : BaseToolbarActivity(), ClassAdapter.NextClickListener {
     private var student: Student? = null
     private var classes: MutableList<Choice> = arrayListOf()
-    private var adapter: SingleSelectionAdapter? = null
-
+    private var adapter: ClassAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,7 +92,7 @@ class ClassSelectionActivity : BaseToolbarActivity(), SingleSelectionAdapter.Nex
 
     private fun setUpRecyclerView() {
         if (classes.size > 0) {
-            adapter = SingleSelectionAdapter(this, classes, this)
+            adapter = ClassAdapter(this, classes, this)
             val gridLayoutManager = GridLayoutManager(this, 2)
             gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {

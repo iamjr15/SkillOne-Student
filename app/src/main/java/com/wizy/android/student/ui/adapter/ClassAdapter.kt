@@ -15,10 +15,9 @@ import com.wizy.android.student.R
 import com.wizy.android.student.model.Choice
 import com.wizy.android.student.model.Student
 
-
-class SingleSelectionAdapter(
+class ClassAdapter(
     internal val context: Context,
-    private val classes: MutableList<Choice>,
+    private val choices: MutableList<Choice>,
     private val listener: NextClickListener
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -44,12 +43,12 @@ class SingleSelectionAdapter(
     }
 
     override fun getItemCount(): Int {
-        return classes.size + 1
+        return choices.size + 1
     }
 
     override fun getItemViewType(position: Int): Int {
         return when (position) {
-            classes.size -> {
+            choices.size -> {
                 1// for next button
             }
             else -> {
@@ -60,8 +59,8 @@ class SingleSelectionAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when {
-            position < (classes.size) -> {
-                val myClass: Choice = classes[position]
+            position < (choices.size) -> {
+                val myClass: Choice = choices[position]
                 val myClassViewHolder: ClassViewHolder = holder as ClassViewHolder
                 myClassViewHolder.background.setCardBackgroundColor(Color.parseColor(myClass.colorString))
                 myClassViewHolder.name.text = myClass.name
@@ -80,7 +79,7 @@ class SingleSelectionAdapter(
                 }
 
             }
-            position == (classes.size) -> {
+            position == (choices.size) -> {
                 val btnHolder: ButtonViewHolder = holder as ButtonViewHolder
                 btnHolder.btnNext.setOnClickListener {
                     if (selectedClass != null) {

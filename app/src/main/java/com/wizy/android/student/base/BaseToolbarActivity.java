@@ -16,7 +16,6 @@ import com.google.android.material.tabs.TabLayout;
 import com.wizy.android.student.R;
 import com.wizy.android.student.helper.CommonUtils;
 import com.wizy.android.student.keyboard.KeyboardVisibilityEvent;
-import com.wizy.android.student.keyboard.KeyboardVisibilityEventListener;
 
 
 public class BaseToolbarActivity extends BaseActivity {
