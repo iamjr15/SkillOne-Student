@@ -14,8 +14,8 @@ import com.wizy.android.student.R
 import com.wizy.android.student.base.BaseToolbarActivity
 import com.wizy.android.student.firebase.FireBaseHelper
 import com.wizy.android.student.helper.AppConstants
+import com.wizy.android.student.model.Choice
 import com.wizy.android.student.model.Student
-import com.wizy.android.student.model.StudentHobby
 import com.wizy.android.student.ui.activity.MainActivity
 import com.wizy.android.student.ui.adapter.HobbiesAdapter
 import kotlinx.android.synthetic.main.activity_hobby_selection.*
@@ -25,7 +25,7 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
     OnFailureListener {
     private var student: Student? = null
     private var adapter: HobbiesAdapter? = null
-    private var hobbies: MutableList<StudentHobby> = arrayListOf()
+    private var hobbies: MutableList<Choice> = arrayListOf()
     private lateinit var reference: CollectionReference
 
 
@@ -59,37 +59,37 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
     }
 
     private fun getHobbies() {
-        var tempHobby = StudentHobby()
+        var tempHobby = Choice()
         tempHobby.name = Student.Hobby.GUITAR.name
         tempHobby.image = R.drawable.guitar
         tempHobby.colorString = "#000000"
         hobbies.add(tempHobby)
 
-        tempHobby = StudentHobby()
+        tempHobby = Choice()
         tempHobby.name = Student.Hobby.PAINTING.name
         tempHobby.image = R.drawable.painting
         tempHobby.colorString = "#F8BBC2"
         hobbies.add(tempHobby)
 
-        tempHobby = StudentHobby()
+        tempHobby = Choice()
         tempHobby.name = Student.Hobby.MARTIAL_ARTS.name
         tempHobby.image = R.drawable.martial_art
         tempHobby.colorString = "#191333"
         hobbies.add(tempHobby)
 
-        tempHobby = StudentHobby()
+        tempHobby = Choice()
         tempHobby.name = Student.Hobby.DRUM_AND_PERCUSSION.name
         tempHobby.image = R.drawable.drums
         tempHobby.colorString = "#A47881"
         hobbies.add(tempHobby)
 
-        tempHobby = StudentHobby()
+        tempHobby = Choice()
         tempHobby.name = Student.Hobby.KEYBOARD.name
         tempHobby.image = R.drawable.keyboard
         tempHobby.colorString = "#927CFA"
         hobbies.add(tempHobby)
 
-        tempHobby = StudentHobby()
+        tempHobby = Choice()
         tempHobby.name = Student.Hobby.DANCE.name
         tempHobby.image = R.drawable.dance
         tempHobby.colorString = "#F06E6C"
@@ -128,7 +128,7 @@ class HobbySelectionActivity : BaseToolbarActivity(), HobbiesAdapter.NextClickLi
             reference.document(it.number)
                 .get()
                 .addOnSuccessListener { document: DocumentSnapshot? ->
-                    if (document?.data!=null) {
+                    if (document?.data != null) {
                         System.out.println(document.data.toString())
                         hideProgress()
                         userAlreadyExists()

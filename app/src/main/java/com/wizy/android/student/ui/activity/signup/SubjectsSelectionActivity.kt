@@ -10,15 +10,15 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.wizy.android.student.R
 import com.wizy.android.student.base.BaseToolbarActivity
 import com.wizy.android.student.helper.AppConstants
+import com.wizy.android.student.model.Choice
 import com.wizy.android.student.model.Student
-import com.wizy.android.student.model.StudentSubject
 import com.wizy.android.student.ui.adapter.SubjectAdapter
 import kotlinx.android.synthetic.main.activity_subjects_selection.*
 
 class SubjectsSelectionActivity : BaseToolbarActivity(), SubjectAdapter.NextClickListener {
     private var student: Student? = null
     private var from: String? = null
-    private var subjects: MutableList<StudentSubject> = arrayListOf()
+    private var subjects: MutableList<Choice> = arrayListOf()
     private var adapter: SubjectAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,37 +67,38 @@ class SubjectsSelectionActivity : BaseToolbarActivity(), SubjectAdapter.NextClic
     }
 
     private fun getSubjects() {
-        var tempSubject = StudentSubject()
+
+        var tempSubject = Choice()
         tempSubject.name = Student.Subject.SCIENCE.name
         tempSubject.image = R.drawable.science
         tempSubject.colorString = "#000000"
         subjects.add(tempSubject)
 
-        tempSubject = StudentSubject()
+        tempSubject = Choice()
         tempSubject.name = Student.Subject.ENGLISH.name
         tempSubject.image = R.drawable.english
         tempSubject.colorString = "#A57982"
         subjects.add(tempSubject)
 
-        tempSubject = StudentSubject()
+        tempSubject = Choice()
         tempSubject.name = Student.Subject.MATHS.name
         tempSubject.image = R.drawable.maths
         tempSubject.colorString = "#120D31"
         subjects.add(tempSubject)
 
-        tempSubject = StudentSubject()
+        tempSubject = Choice()
         tempSubject.name = Student.Subject.SOCIAL_STUDIES.name
         tempSubject.image = R.drawable.social_studies
         tempSubject.colorString = "#9381FF"
         subjects.add(tempSubject)
 
-        tempSubject = StudentSubject()
+        tempSubject = Choice()
         tempSubject.name = Student.Subject.LANGUAGES.name
         tempSubject.image = R.drawable.languages
         tempSubject.colorString = "#BC69AA"
         subjects.add(tempSubject)
 
-        tempSubject = StudentSubject()
+        tempSubject = Choice()
         tempSubject.name = Student.Subject.COMPUTER_SCIENCE.name
         tempSubject.image = R.drawable.computer_science
         tempSubject.colorString = "#EF6F6C"

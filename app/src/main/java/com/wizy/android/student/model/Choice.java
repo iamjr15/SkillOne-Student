@@ -2,6 +2,8 @@ package com.wizy.android.student.model;
 
 import androidx.annotation.DrawableRes;
 
+/** /////////////////////// Just Helper class to show items in recycler //////////////////////////////// **/
+
 public class Choice {
     private String name;
     private String colorString;

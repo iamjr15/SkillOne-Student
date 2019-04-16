@@ -12,12 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.wizy.android.student.R
+import com.wizy.android.student.model.Choice
 import com.wizy.android.student.model.Student
-import com.wizy.android.student.model.StudentSubject
 
 class SubjectAdapter(
     internal val context: Context,
-    private val subjects: MutableList<StudentSubject>,
+    private val subjects: MutableList<Choice>,
     private val listener: NextClickListener
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -60,7 +60,7 @@ class SubjectAdapter(
         when {
             position < (subjects.size) -> {
                 val holder: SubjectViewHolder = recyclerViewHolder as SubjectViewHolder
-                val subject: StudentSubject = subjects[position]
+                val subject: Choice = subjects[position]
                 holder.background.setCardBackgroundColor(Color.parseColor(subject.colorString))
                 holder.name.text = subject.name
                 holder.image.setImageResource(subject.image)

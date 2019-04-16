@@ -12,13 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.wizy.android.student.R
+import com.wizy.android.student.model.Choice
 import com.wizy.android.student.model.Student
-import com.wizy.android.student.model.StudentHobby
-import javax.security.auth.Subject.getSubject
 
 class HobbiesAdapter(
     internal val context: Context,
-    private val hobbies: MutableList<StudentHobby>,
+    private val hobbies: MutableList<Choice>,
     private val listener: NextClickListener
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -61,7 +60,7 @@ class HobbiesAdapter(
         when {
             position < (hobbies.size) -> {
                 val holder: SubjectViewHolder = recyclerViewHolder as SubjectViewHolder
-                val subject: StudentHobby = hobbies[position]
+                val subject: Choice = hobbies[position]
                 holder.background.setCardBackgroundColor(Color.parseColor(subject.colorString))
                 holder.name.text = subject.name
                 holder.image.setImageResource(subject.image)

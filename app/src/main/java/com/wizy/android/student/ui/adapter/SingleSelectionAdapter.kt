@@ -12,13 +12,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.wizy.android.student.R
+import com.wizy.android.student.model.Choice
 import com.wizy.android.student.model.Student
-import com.wizy.android.student.model.StudentClass
 
 
-class ClassAdapter(
+class SingleSelectionAdapter(
     internal val context: Context,
-    private val classes: MutableList<StudentClass>,
+    private val classes: MutableList<Choice>,
     private val listener: NextClickListener
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -61,7 +61,7 @@ class ClassAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when {
             position < (classes.size) -> {
-                val myClass: StudentClass = classes[position]
+                val myClass: Choice = classes[position]
                 val myClassViewHolder: ClassViewHolder = holder as ClassViewHolder
                 myClassViewHolder.background.setCardBackgroundColor(Color.parseColor(myClass.colorString))
                 myClassViewHolder.name.text = myClass.name
@@ -84,7 +84,7 @@ class ClassAdapter(
                 val btnHolder: ButtonViewHolder = holder as ButtonViewHolder
                 btnHolder.btnNext.setOnClickListener {
                     if (selectedClass != null) {
-                        listener.onClick(selectedClass!!)
+                        listener.onClickNext(selectedClass!!)
                     } else {
                         showSelectClassFirst(btnHolder.btnNext)
                     }
@@ -115,6 +115,6 @@ class ClassAdapter(
 
     @FunctionalInterface
     interface NextClickListener {
-        fun onClick(standard: Student.Standard)
+        fun onClickNext(standard: Student.Standard)
     }
 }
