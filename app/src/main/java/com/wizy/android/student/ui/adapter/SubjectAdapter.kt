@@ -89,6 +89,7 @@ class SubjectAdapter(
         }
     }
 
+
     private fun getSubject(string: String): Student.Subject {
         return Student.Subject.valueOf(string)
 
